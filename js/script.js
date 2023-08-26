@@ -24,19 +24,20 @@ const strangeArray = [
   "JavaScript",
 ];
 
-// Función que recibe por parámetro un array y muestra sus elementos en pantalla
-function showList(array) {
+// Filtrar y mostrar elementos de tipo String ordenados alfabéticamente
+function showStringsAlphabetically(array) {
+  const stringArray = array.filter((element) => typeof element === "string");
+  const sortedStringArray = stringArray.sort();
+
   const container = document.getElementById("list");
   container.innerHTML = "";
-  // Más info de forEach => https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
-  array.forEach((element) => {
+  
+  sortedStringArray.forEach((element) => {
     const li = document.createElement("li");
     li.appendChild(document.createTextNode(element));
     container.appendChild(li);
   });
 }
 
-document.addEventListener("DOMContentLoaded", (e) => {
-  // Escribe tu solución aquí
-  // Sugerencia de cómo mostrar el array => showList(strangeArray);
-});
+// Llamar a la función para mostrar las strings ordenadas alfabéticamente
+showStringsAlphabetically(strangeArray);
